@@ -2,6 +2,11 @@
 test.html
 generate-icons.html
 
+# IT Glue documentation (internal use only)
+IT_GLUE_DOCUMENTATION_*.html
+IT_GLUE_DOCUMENTATION_*.md
+DOCUMENTATIE_SAMENVATTING.txt
+
 # Claude settings
 .claude/
 
