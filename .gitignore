@@ -1,0 +1,15 @@
+# Development/test files
+test.html
+generate-icons.html
+
+# Claude settings
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/

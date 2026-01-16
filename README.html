@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callto/SIP to Tel Converter - Documentation</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #0078d4;
+            border-bottom: 2px solid #0078d4;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #106ebe;
+            margin-top: 20px;
+        }
+        h4 {
+            color: #333;
+            margin-top: 15px;
+        }
+        .section-header {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+        .problem-box {
+            background-color: #fff4e6;
+            padding: 15px;
+            border-left: 4px solid #ff9800;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        .solution-box {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-left: 4px solid #4caf50;
+            margin: 10px 0 15px 0;
+            border-radius: 3px;
+        }
+        .escalation-box {
+            background-color: #ffebee;
+            padding: 15px;
+            border-left: 4px solid #f44336;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        .info-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196f3;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #0078d4;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .path {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+        ol, ul {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .step {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 3px;
+            border-left: 4px solid #0078d4;
+        }
+        strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+
+<h1>Callto/SIP to Tel Converter - Documentation</h1>
+
+<div class="section-header">
+    <h3>Extension Information</h3>
+    <p><strong>Name:</strong> Callto/SIP to Tel Converter<br>
+    <strong>Version:</strong> 1.1<br>
+    <strong>Purpose:</strong> Automatically converts callto: and sip: links to tel: links<br>
+    <strong>Supported browsers:</strong> Microsoft Edge, Google Chrome<br>
+    <strong>Operating system:</strong> Windows, macOS, Linux</p>
+</div>
+
+<h2>What is this extension?</h2>
+
+<p>The Callto/SIP to Tel Converter is a browser extension that automatically converts phone number links on websites. When a website uses a link with <code>callto:</code> or <code>sip:</code> protocol, this extension converts these links to <code>tel:</code> links. This ensures that users can dial phone numbers via their phone system (such as Microsoft Teams, 3CX, or other VoIP systems) instead of only through the browser.</p>
+
+<div class="info-box">
+    <strong>Who is this documentation for?</strong><br>
+    This documentation is intended for first-line support (helpdesk). It enables you to help users with installation, management, and common issues with the extension.
+</div>
+
+<hr>
+
+<h2>Common Problems and Quick Solutions</h2>
+
+<h3>Problem 1: The extension doesn't work after installation</h3>
+<div class="problem-box">
+    <strong>Symptoms:</strong> Clicking phone numbers still opens the browser dialer instead of Teams/3CX
+</div>
+
+<strong>Quick diagnosis:</strong>
+<ol>
+    <li>Check if the extension is enabled in Edge/Chrome settings</li>
+    <li>Refresh the website where you're testing (F5 or Ctrl+R)</li>
+    <li>Test on another website with callto/sip links</li>
+</ol>
+
+<div class="solution-box">
+    <strong>Solution:</strong>
+    <ol>
+        <li>Open <code>edge://extensions</code> (Edge) or <code>chrome://extensions</code> (Chrome)</li>
+        <li>Look for "Callto/SIP to Tel Converter"</li>
+        <li>Make sure the toggle is BLUE (enabled)</li>
+        <li>Refresh the website (Ctrl+F5)</li>
+        <li>Test again</li>
+    </ol>
+</div>
+
+<hr>
+
+<h3>Problem 2: The extension doesn't work on some websites</h3>
+<div class="problem-box">
+    <strong>Symptoms:</strong> The extension works on website A but not on website B
+</div>
+
+<strong>Possible causes:</strong>
+<ul>
+    <li>Website B creates links dynamically (AJAX/JavaScript)</li>
+    <li>Website B blocks extensions</li>
+    <li>Website B uses different link formats</li>
+</ul>
+
+<div class="solution-box">
+    <strong>Solution:</strong>
+    <ol>
+        <li>Check if the link actually starts with <code>callto:</code> or <code>sip:</code></li>
+        <li>Right-click on the link → "Inspect" (or F12)</li>
+        <li>Look for <code>href="callto:..."</code> or <code>href="sip:..."</code></li>
+        <li>If this is NOT present, the extension won't work (this is a website issue, not an extension issue)</li>
+        <li>If this IS present, reloading the page may help</li>
+    </ol>
+</div>
+
+<hr>
+
+<h3>Problem 3: User gets error "This app cannot be opened"</h3>
+<div class="problem-box">
+    <strong>Symptoms:</strong> After clicking a phone number, an error message appears
+</div>
+
+<strong>Possible causes:</strong>
+<ul>
+    <li>Microsoft Teams/3CX is not installed</li>
+    <li>The default phone application is not configured</li>
+    <li>The link is corrupted</li>
+</ul>
+
+<div class="solution-box">
+    <strong>Solution:</strong>
+    <ol>
+        <li>Check if Microsoft Teams or 3CX is installed and active</li>
+        <li>In Teams: Check if Teams is set as the default VoIP app</li>
+        <li>Remove any spaces or special characters from the phone number</li>
+        <li>Test with a different phone number</li>
+    </ol>
+</div>
+
+<hr>
+
+<h3>Problem 4: The extension disappears after browser restart</h3>
+<div class="problem-box">
+    <strong>Symptoms:</strong> After closing and reopening the browser, the extension is gone
+</div>
+
+<strong>Cause:</strong> This happens when the extension is loaded in "Developer Mode" without saving it in permanent settings
+
+<div class="solution-box">
+    <strong>Solution:</strong>
+    <ol>
+        <li>Reload the extension from the file again</li>
+        <li>Contact IT for permanent installation options</li>
+        <li>In the future, the extension will be available via Chrome Web Store / Edge Add-ons</li>
+    </ol>
+</div>
+
+<hr>
+
+<h3>Problem 5: User doesn't see the extension in the browser list</h3>
+<div class="problem-box">
+    <strong>Symptoms:</strong> Cannot find "Callto/SIP to Tel Converter" in <code>edge://extensions</code>
+</div>
+
+<strong>Possible causes:</strong>
+<ul>
+    <li>Extension is not correctly loaded</li>
+    <li>User is looking in the wrong place</li>
+    <li>Developer Mode is disabled</li>
+</ul>
+
+<div class="solution-box">
+    <strong>Solution:</strong>
+    <ol>
+        <li>Make sure Developer Mode is enabled (see step 2 in installation guide)</li>
+        <li>Check the correct path: <code>edge://extensions</code> (Edge) or <code>chrome://extensions</code> (Chrome)</li>
+        <li>Scroll down - extension may be at the bottom</li>
+        <li>Ask the user to take screenshots for verification</li>
+    </ol>
+</div>
+
+<hr>
+
+<h2>Installation Guide: Step by Step</h2>
+
+<h3>For Microsoft Edge</h3>
+
+<div class="step">
+    <strong>Step 1: Open the Extensions page</strong>
+    <ul>
+        <li>Click on the menu (three dots) in the top right of Edge</li>
+        <li>Select "Extensions" → "Manage extensions"</li>
+        <li>Or type directly in the address bar: <code>edge://extensions</code></li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Step 2: Enable Developer Mode</strong>
+    <ul>
+        <li>Look at the bottom left of the page</li>
+        <li>Toggle "Developer mode" to ON (switch turns blue)</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Step 3: Load the extension</strong>
+    <ul>
+        <li>Click the "Load unpacked" button (top left)</li>
+        <li>Navigate to the extension folder</li>
+        <li>Click "Select Folder"</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Step 4: Confirm installation</strong>
+    <ul>
+        <li>You should now see "Callto/SIP to Tel Converter" in the list</li>
+        <li>The toggle is blue (enabled)</li>
+        <li>Version number shows "1.1"</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Step 5: Test the extension</strong>
+    <ul>
+        <li>Open a website with phone numbers</li>
+        <li>Right-click on a phone number and choose "Inspect"</li>
+        <li>Check if <code>href="tel:+31612345678"</code> is displayed (not <code>callto:</code> or <code>sip:</code>)</li>
+        <li>Try clicking the phone number</li>
+    </ul>
+</div>
+
+<hr>
+
+<h3>For Google Chrome</h3>
+
+<div class="step">
+    <strong>Step 1: Open the Extensions page</strong>
+    <ul>
+        <li>Click on the menu (three dots) in the top right of Chrome</li>
+        <li>Select "More tools" → "Extensions"</li>
+        <li>Or type directly in the address bar: <code>chrome://extensions</code></li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Step 2: Enable Developer Mode</strong>
+    <ul>
+        <li>Look at the top right of the page</li>
+        <li>Toggle "Developer mode" to ON (switch turns blue)</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Step 3: Load the extension</strong>
+    <ul>
+        <li>Click "Load unpacked"</li>
+        <li>Navigate to the extension folder</li>
+        <li>Select the folder and click "Select Folder"</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Step 4: Confirm installation</strong>
+    <ul>
+        <li>You should now see "Callto/SIP to Tel Converter" in the list</li>
+        <li>The toggle is blue (enabled)</li>
+        <li>Version number shows "1.1"</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Step 5: Test the extension</strong>
+    <ul>
+        <li>Open a website with phone numbers</li>
+        <li>Right-click on a phone number and choose "Inspect"</li>
+        <li>Check if the <code>href</code> starts with <code>tel:</code> (not <code>callto:</code> or <code>sip:</code>)</li>
+        <li>Try clicking the phone number</li>
+    </ul>
+</div>
+
+<hr>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+
+<h3>Q: Does this extension work on mobile phones?</h3>
+<p><strong>A:</strong> No, this extension is only for browsers on computers (Edge and Chrome). Mobile browsers already have native <code>tel:</code> support.</p>
+
+<hr>
+
+<h3>Q: Will this extension slow down my browser?</h3>
+<p><strong>A:</strong> No. The extension works minimally (only link conversion) and has no noticeable impact on browser performance.</p>
+
+<hr>
+
+<h3>Q: What happens to my privacy and data?</h3>
+<p><strong>A:</strong> The extension processes no data, logs nothing, and sends nothing to external servers. It works entirely locally in your browser.</p>
+
+<hr>
+
+<h3>Q: Can I use the extension on all websites?</h3>
+<p><strong>A:</strong> Yes, the extension works on all websites, except when:</p>
+<ul>
+    <li>The website blocks the extension</li>
+    <li>The website has strict Content Security Policy (CSP)</li>
+    <li>The website doesn't use <code>callto:</code> or <code>sip:</code> links</li>
+</ul>
+
+<hr>
+
+<h3>Q: What if I accidentally delete an extension file?</h3>
+<p><strong>A:</strong> Contact IT. The extension can be reinstalled from the central location.</p>
+
+<hr>
+
+<h3>Q: Does this extension work with Microsoft Teams and 3CX?</h3>
+<p><strong>A:</strong> Yes! This is exactly the purpose. After links are converted to <code>tel:</code>, they automatically open in:</p>
+<ul>
+    <li>Microsoft Teams (if set as default VoIP app)</li>
+    <li>3CX (if set as default VoIP app)</li>
+    <li>Other VoIP systems that support <code>tel:</code> protocol</li>
+</ul>
+
+<hr>
+
+<h3>Q: What happens if both Edge and Chrome are on the same computer?</h3>
+<p><strong>A:</strong> Both can have the extension. They work independently of each other. Install the extension for both browsers if needed.</p>
+
+<hr>
+
+<h2>Management and Maintenance</h2>
+
+<h3>Disable the extension (without removal)</h3>
+
+<strong>In Microsoft Edge:</strong>
+<ol>
+    <li>Open <code>edge://extensions</code></li>
+    <li>Find "Callto/SIP to Tel Converter"</li>
+    <li>Click the blue toggle to grey</li>
+</ol>
+
+<strong>In Google Chrome:</strong>
+<ol>
+    <li>Open <code>chrome://extensions</code></li>
+    <li>Find "Callto/SIP to Tel Converter"</li>
+    <li>Click the blue toggle to grey</li>
+</ol>
+
+<hr>
+
+<h3>Remove the extension</h3>
+
+<strong>In Microsoft Edge:</strong>
+<ol>
+    <li>Open <code>edge://extensions</code></li>
+    <li>Find "Callto/SIP to Tel Converter"</li>
+    <li>Click "Remove"</li>
+    <li>Confirm "Remove"</li>
+</ol>
+
+<strong>In Google Chrome:</strong>
+<ol>
+    <li>Open <code>chrome://extensions</code></li>
+    <li>Find "Callto/SIP to Tel Converter"</li>
+    <li>Click "Remove"</li>
+    <li>Confirm "Remove"</li>
+</ol>
+
+<hr>
+
+<h2>Escalation Procedure</h2>
+
+<h3>When NOT to escalate to Second Line</h3>
+
+<p>You can solve these problems yourself:</p>
+<ul>
+    <li>Extension not enabled (check toggle)</li>
+    <li>Website not refreshed (Ctrl+F5)</li>
+    <li>Wrong installation path followed (repeat installation guide)</li>
+    <li>User tested on website without <code>callto:</code>/<code>sip:</code> links</li>
+    <li>VoIP app (Teams/3CX) not set as default</li>
+</ul>
+
+<hr>
+
+<h3>When to escalate to Second Line</h3>
+
+<p>Escalate in these scenarios:</p>
+
+<h4>Scenario 1: Extension crashes browser</h4>
+<div class="escalation-box">
+    <strong>Symptoms:</strong> Browser crashes or becomes slow<br>
+    <strong>Action:</strong> Remove extension, report bug
+</div>
+
+<h4>Scenario 2: VoIP system doesn't respond to tel: links</h4>
+<div class="escalation-box">
+    <strong>Symptoms:</strong> Links work after conversion, but Teams/3CX doesn't open<br>
+    <strong>Required info:</strong>
+    <ul>
+        <li>VoIP system name and version</li>
+        <li>Screenshot of Developer Tools console</li>
+        <li>Working phone number that was tested</li>
+    </ul>
+</div>
+
+<h4>Scenario 3: Extension doesn't work on certain company websites</h4>
+<div class="escalation-box">
+    <strong>Symptoms:</strong> All other websites work, but internal website doesn't<br>
+    <strong>Required info:</strong>
+    <ul>
+        <li>Exact URL of website</li>
+        <li>Actual link format (screenshot Developer Tools)</li>
+        <li>CSP error messages from console</li>
+    </ul>
+</div>
+
+<h4>Scenario 4: Installation/Removal Issues</h4>
+<div class="escalation-box">
+    <strong>Symptoms:</strong> Cannot install or remove extension<br>
+    <strong>Required info:</strong>
+    <ul>
+        <li>Exact error message</li>
+        <li>Screenshot of extensions page</li>
+    </ul>
+</div>
+
+<h4>Scenario 5: User reports security issue</h4>
+<div class="escalation-box">
+    <strong>Symptoms:</strong> Suspicious behavior, unexpected network activity<br>
+    <strong>Action:</strong> IMMEDIATELY escalate, remove extension
+</div>
+
+<hr>
+
+<h2>Technical Details (For IT Administrators)</h2>
+
+<h3>How does the extension work?</h3>
+
+<ol>
+    <li><strong>Initialization:</strong> The extension loads when the browser starts</li>
+    <li><strong>Scanning:</strong> On each page load, it scans for links with <code>callto:</code> and <code>sip:</code> protocol</li>
+    <li><strong>Conversion:</strong> These links are replaced with <code>tel:</code> links</li>
+    <li><strong>Monitoring:</strong> The extension monitors dynamically loaded content (AJAX/SPAs) and converts these links too</li>
+</ol>
+
+<hr>
+
+<h3>Extension Files</h3>
+
+<div class="path">
+LinkChangerExtenstion/<br>
+├── manifest.json          (Configuration and settings)<br>
+├── content.js             (Main logic for link conversion)<br>
+├── privacy-policy.html    (Privacy policy for store submission)<br>
+└── icons/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── icon16.png         (Small icon)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── icon48.png         (Medium icon)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── icon128.png        (Large icon)
+</div>
+
+<hr>
+
+<h3>Known Limitations</h3>
+
+<ul>
+    <li><strong>Dynamic content:</strong> Extension follows DOM mutations, but not everything</li>
+    <li><strong>PDFs:</strong> Doesn't work in embedded PDFs (browsers block this)</li>
+    <li><strong>Chrome Extensions API:</strong> Only works in Chrome/Edge, not in Firefox</li>
+    <li><strong>CSP-blocking:</strong> Some company sites block extensions</li>
+</ul>
+
+<hr>
+
+<h2>Version History</h2>
+
+<table>
+    <tr>
+        <th>Version</th>
+        <th>Status</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td>1.0</td>
+        <td>Initial</td>
+        <td>Supported <code>callto:</code> protocol only</td>
+    </tr>
+    <tr>
+        <td>1.1</td>
+        <td>Current</td>
+        <td>Added <code>sip:</code> protocol support. Monitors dynamically added content. Works in Edge and Chrome. Manifest v3 compatible.</td>
+    </tr>
+    <tr>
+        <td>Future</td>
+        <td>Planned</td>
+        <td>Web Store publication, advanced configuration options, other VoIP protocols (if needed)</td>
+    </tr>
+</table>
+
+<hr>
+
+<div class="info-box">
+    <strong>Document metadata:</strong><br>
+    Created: 2025-01<br>
+    Version: 1.0<br>
+    Audience: First line support / IT administrators<br>
+    Language: English
+</div>
+
+</div>
+</body>
+</html>

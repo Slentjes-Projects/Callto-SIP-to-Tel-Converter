@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callto/SIP to Tel Converter - IT Glue Documentatie</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #0078d4;
+            border-bottom: 2px solid #0078d4;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #106ebe;
+            margin-top: 20px;
+        }
+        h4 {
+            color: #333;
+            margin-top: 15px;
+        }
+        .section-header {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+        .problem-box {
+            background-color: #fff4e6;
+            padding: 15px;
+            border-left: 4px solid #ff9800;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        .solution-box {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-left: 4px solid #4caf50;
+            margin: 10px 0 15px 0;
+            border-radius: 3px;
+        }
+        .escalation-box {
+            background-color: #ffebee;
+            padding: 15px;
+            border-left: 4px solid #f44336;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        .info-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196f3;
+            margin: 15px 0;
+            border-radius: 3px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #0078d4;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .path {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+        ol, ul {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .checklist {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .checklist li:before {
+            content: "☐ ";
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .step {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 3px;
+            border-left: 4px solid #0078d4;
+        }
+        strong {
+            color: #333;
+        }
+        blockquote {
+            border-left: 4px solid #999;
+            padding-left: 15px;
+            margin-left: 0;
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+
+<h1>Callto/SIP to Tel Converter - IT Glue Ondersteunsingsdocumentatie</h1>
+
+<div class="section-header">
+    <h3>Extensie-informatie</h3>
+    <p><strong>Naam:</strong> Callto/SIP to Tel Converter<br>
+    <strong>Versie:</strong> 1.1<br>
+    <strong>Doel:</strong> Automatische conversie van callto: en sip: links naar tel: links<br>
+    <strong>Ondersteunde browsers:</strong> Microsoft Edge, Google Chrome<br>
+    <strong>Besturingssysteem:</strong> Windows</p>
+</div>
+
+<h2>Wat is deze extensie?</h2>
+
+<p>De Callto/SIP to Tel Converter is een browser-extensie die automatisch telefoonnummerkoppelingen op websites omzet. Wanneer een website een link met <code>callto:</code> of <code>sip:</code> protocol gebruikt, converteert deze extensie deze links naar <code>tel:</code> links. Dit zorgt ervoor dat gebruikers telefoonnummers kunnen kiezen via hun telefooncentrale (zoals Microsoft Teams, 3CX of andere VoIP-systemen) in plaats van alleen via de browser.</p>
+
+<div class="info-box">
+    <strong>Voor wie is deze documentatie?</strong><br>
+    Deze documentatie is bedoeld voor eerste lijns support (helpdesk). Hiermee kunt u gebruikers helpen bij installatie, beheer en veelvoorkomende problemen met de extensie.
+</div>
+
+---
+
+<h2>Veelvoorkomende Problemen en Snelle Oplossingen</h2>
+
+<h3>Probleem 1: De extensie werkt niet na installatie</h3>
+<div class="problem-box">
+    <strong>Symptomen:</strong> Telefoonnummers klikken opent nog steeds de browser-kiezen in plaats van Teams/3CX
+</div>
+
+<strong>Snelle diagnose:</strong>
+<ol>
+    <li>Controleer of de extensie ingeschakeld is in Edge/Chrome instellingen</li>
+    <li>Vernieuw de website waar u het probeert (F5 of Ctrl+R)</li>
+    <li>Test op een ander website met callto/sip links</li>
+</ol>
+
+<div class="solution-box">
+    <strong>Oplossing:</strong>
+    <ol>
+        <li>Open <code>edge://extensions</code> (Edge) of <code>chrome://extensions</code> (Chrome)</li>
+        <li>Zoek naar "Callto/SIP to Tel Converter"</li>
+        <li>Zorg dat de toggle/schakelaar BLAUW is (ingeschakeld)</li>
+        <li>Vernieuw de website (Ctrl+F5)</li>
+        <li>Test opnieuw</li>
+    </ol>
+</div>
+
+---
+
+<h3>Probleem 2: De extensie werkt op sommige websites niet</h3>
+<div class="problem-box">
+    <strong>Symptomen:</strong> De extensie werkt op website A maar niet op website B
+</div>
+
+<strong>Mogelijke oorzaken:</strong>
+<ul>
+    <li>Website B maakt dynamisch links aan (AJAX/JavaScript)</li>
+    <li>Website B blokkeert extensies</li>
+    <li>Website B gebruikt andere link-formaten</li>
+</ul>
+
+<div class="solution-box">
+    <strong>Oplossing:</strong>
+    <ol>
+        <li>Controleer of de link werkelijk begint met <code>callto:</code> of <code>sip:</code></li>
+        <li>Rechtsklik op de link → "Inspect" (of F12)</li>
+        <li>Zoek naar <code>href="callto:..."</code> of <code>href="sip:..."</code></li>
+        <li>Als dit NIET aanwezig is, werkt de extensie niet (dit is een Website-probleem, geen extensie-probleem)</li>
+        <li>Als dit WEL aanwezig is, opnieuw laden van de pagina kan helpen</li>
+    </ol>
+</div>
+
+---
+
+<h3>Probleem 3: Gebruiker krijgt foutmelding "Deze app kan niet worden geopend"</h3>
+<div class="problem-box">
+    <strong>Symptomen:</strong> Na klikken op een telefoonnummer verschijnt een foutmelding
+</div>
+
+<strong>Mogelijke oorzaken:</strong>
+<ul>
+    <li>Microsoft Teams/3CX is niet geïnstalleerd</li>
+    <li>Het standaard telefoonprogramma is niet geconfigureerd</li>
+    <li>De link is beschadigd</li>
+</ul>
+
+<div class="solution-box">
+    <strong>Oplossing:</strong>
+    <ol>
+        <li>Controleer of Microsoft Teams of 3CX is geïnstalleerd en actief</li>
+        <li>In Teams: Controleer of Teams is ingesteld als standaard VoIP-app</li>
+        <li>Verwijder eventuele spaties of speciale tekens uit het telefoonnummer</li>
+        <li>Test met een ander telefoonnummer</li>
+    </ol>
+</div>
+
+---
+
+<h3>Probleem 4: De extensie verdwijnt na browser herstarten</h3>
+<div class="problem-box">
+    <strong>Symptomen:</strong> Na sluiten en opnieuw openen van de browser is de extensie weg
+</div>
+
+<strong>Oorzaak:</strong> Dit gebeurt wanneer de extensie in "Developer Mode" is geladen zonder dit op te slaan in de permanente instellingen
+
+<div class="solution-box">
+    <strong>Oplossing:</strong>
+    <ol>
+        <li>Herlaad de extensie opnieuw vanuit het bestand</li>
+        <li>Neem contact op met IT voor permanente installatieoptie</li>
+        <li>In de toekomst zal de extensie beschikbaar zijn via Chrome Web Store</li>
+    </ol>
+</div>
+
+---
+
+<h3>Probleem 5: Gebruiker ziet de extensie niet in de browserlijst</h3>
+<div class="problem-box">
+    <strong>Symptomen:</strong> Kan "Callto/SIP to Tel Converter" niet vinden in <code>edge://extensions</code>
+</div>
+
+<strong>Mogelijke oorzaken:</strong>
+<ul>
+    <li>Extensie is niet correct geladen</li>
+    <li>Gebruiker zoekt op verkeerde plek</li>
+    <li>Developer Mode is uitgeschakeld</li>
+</ul>
+
+<div class="solution-box">
+    <strong>Oplossing:</strong>
+    <ol>
+        <li>Zorg dat Developer Mode is ingeschakeld (zie stap 2 in installatiehandleiding)</li>
+        <li>Controleer het juiste pad: <code>edge://extensions</code> (Edge) of <code>chrome://extensions</code> (Chrome)</li>
+        <li>Scroll naar beneden - extensie kan onderaan staan</li>
+        <li>Vraag gebruiker om screenshots te maken ter controle</li>
+    </ol>
+</div>
+
+---
+
+<h2>Installatiehandleiding: Stap voor Stap</h2>
+
+<h3>Voor Microsoft Edge</h3>
+
+<div class="step">
+    <strong>Stap 1: Open de Extensions-pagina</strong>
+    <ul>
+        <li>Klik op het menu (drie stippen) rechts bovenin Edge</li>
+        <li>Selecteer "Extensies" → "Extensies beheren"</li>
+        <li>Of typ direct in de adresbalk: <code>edge://extensions</code></li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Stap 2: Schakel Developer Mode in</strong>
+    <ul>
+        <li>Zoek linksonder op de pagina</li>
+        <li>Toggle "Developer-modus" naar AAN (schakelaar wordt blauw)</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Stap 3: Laad de extensie</strong>
+    <ul>
+        <li>Klik op de knop "Pakket laden" (links bovenin)</li>
+        <li>Navigeer naar het extensie-pad:</li>
+    </ul>
+    <div class="path">C:\Users\s.lentjes\OneDrive - Xantion ICT\Tools\LinkChangerExtenstion</div>
+    <ul>
+        <li>Klik "Map selecteren" of "Selecteren"</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Stap 4: Bevestig installatie</strong>
+    <ul>
+        <li>Je ziet nu "Callto/SIP to Tel Converter" in de lijst</li>
+        <li>De schakelaar is blauw (ingeschakeld)</li>
+        <li>Versienummer toont "1.1"</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Stap 5: Test de extensie</strong>
+    <ul>
+        <li>Open een website met telefoonnummers (bijvoorbeeld een bedrijfswebsite)</li>
+        <li>Rechtsklik op een telefoonnummer en kies "Inspect"</li>
+        <li>Controleer of <code>href="tel:+31612345678"</code> wordt weergegeven (niet <code>callto:</code> of <code>sip:</code>)</li>
+        <li>Probeer het telefoonnummer aan te klikken</li>
+    </ul>
+</div>
+
+---
+
+<h3>Voor Google Chrome</h3>
+
+<div class="step">
+    <strong>Stap 1: Open de Extensions-pagina</strong>
+    <ul>
+        <li>Klik op het menu (drie puntjes) rechts bovenin Chrome</li>
+        <li>Selecteer "Meer tools" → "Extensies"</li>
+        <li>Of typ direct in de adresbalk: <code>chrome://extensions</code></li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Stap 2: Schakel Developer Mode in</strong>
+    <ul>
+        <li>Zoek rechts bovenin op de pagina</li>
+        <li>Toggle "Ontwikkelaars modus" naar AAN (schakelaar wordt blauw)</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Stap 3: Laad de extensie</strong>
+    <ul>
+        <li>Klik op "Niet-verpakt item laden"</li>
+        <li>Navigeer naar het extensie-pad:</li>
+    </ul>
+    <div class="path">C:\Users\s.lentjes\OneDrive - Xantion ICT\Tools\LinkChangerExtenstion</div>
+    <ul>
+        <li>Selecteer de map en klik "Map selecteren"</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Stap 4: Bevestig installatie</strong>
+    <ul>
+        <li>Je ziet nu "Callto/SIP to Tel Converter" in de lijst</li>
+        <li>De schakelaar is blauw (ingeschakeld)</li>
+        <li>Versienummer toont "1.1"</li>
+    </ul>
+</div>
+
+<div class="step">
+    <strong>Stap 5: Test de extensie</strong>
+    <ul>
+        <li>Open een website met telefoonnummers</li>
+        <li>Rechtsklik op een telefoonnummer en kies "Inspecteren"</li>
+        <li>Controleer of het <code>href</code> begint met <code>tel:</code> (niet <code>callto:</code> of <code>sip:</code>)</li>
+        <li>Probeer het telefoonnummer aan te klikken</li>
+    </ul>
+</div>
+
+---
+
+<h2>Veelgestelde Vragen (FAQ)</h2>
+
+<h3>V: Werkt deze extensie op mobiele telefoons?</h3>
+<p><strong>A:</strong> Nee, deze extensie is alleen voor browsers op computers (Edge en Chrome). Mobiele browsers hebben al native <code>tel:</code> ondersteuning.</p>
+
+---
+
+<h3>V: Zal deze extensie mijn browser vertragen?</h3>
+<p><strong>A:</strong> Nee. De extensie werkt minimaal (alleen linkconversie) en heeft geen merkbare impact op browserprestaties.</p>
+
+---
+
+<h3>V: Wat gebeurt er met my privacy en gegevens?</h3>
+<p><strong>A:</strong> De extensie verwerkt geen gegevens, registreert niets en stuurt niets naar externe servers. Het werkt volledig lokaal in uw browser.</p>
+
+---
+
+<h3>V: Kan ik de extensie op alle websites gebruiken?</h3>
+<p><strong>A:</strong> Ja, de extensie werkt op alle websites, behalve als:</p>
+<ul>
+    <li>De website de extensie blokkeert</li>
+    <li>De website strikte Content Security Policy (CSP) heeft</li>
+    <li>De website geen <code>callto:</code> of <code>sip:</code> links gebruikt</li>
+</ul>
+
+---
+
+<h3>V: Wat als ik per ongeluk een extensie-bestand delete?</h3>
+<p><strong>A:</strong> Neem contact op met IT. De extensie kan opnieuw worden geïnstalleerd vanuit het centrale pad.</p>
+
+---
+
+<h3>V: Werkt deze extensie met Microsoft Teams en 3CX?</h3>
+<p><strong>A:</strong> Ja! Dit is exact het doel. Nadat links zijn geconverteerd naar <code>tel:</code>, openen ze automatisch in:</p>
+<ul>
+    <li>Microsoft Teams (als standaard VoIP-app ingesteld)</li>
+    <li>3CX (als standaard VoIP-app ingesteld)</li>
+    <li>Andere VoIP-systemen die <code>tel:</code> protocol ondersteunen</li>
+</ul>
+
+---
+
+<h3>V: Wat gebeurt er als beide Edge en Chrome op dezelfde computer zijn?</h3>
+<p><strong>A:</strong> Beiden kunnen de extensie hebben. Deze werken onafhankelijk van elkaar. Installeer de extensie voor beide browsers als nodig.</p>
+
+---
+
+<h3>V: Kan ik de extensie voor alle gebruikers in mijn organisatie installeren?</h3>
+<p><strong>A:</strong> Dit hangt af van uw IT-policies:</p>
+<ul>
+    <li>Voor lokale installatie: Elk gebruikersaccount moet de stappen volgen</li>
+    <li>Voor centrale implementatie: IT kan een groepsbeleid (GPO) gebruiken als deze later via Web Store beschikbaar is</li>
+    <li>Neem contact op met IT voor enterprise-deployment</li>
+</ul>
+
+---
+
+<h2>Beheer en Onderhoud</h2>
+
+<h3>De extensie uitschakelen (zonder verwijdering)</h3>
+
+<strong>In Microsoft Edge:</strong>
+<ol>
+    <li>Open <code>edge://extensions</code></li>
+    <li>Zoek "Callto/SIP to Tel Converter"</li>
+    <li>Klik de blauwe schakelaar naar grijs</li>
+</ol>
+
+<strong>In Google Chrome:</strong>
+<ol>
+    <li>Open <code>chrome://extensions</code></li>
+    <li>Zoek "Callto/SIP to Tel Converter"</li>
+    <li>Klik de blauwe schakelaar naar grijs</li>
+</ol>
+
+---
+
+<h3>De extensie verwijderen</h3>
+
+<strong>In Microsoft Edge:</strong>
+<ol>
+    <li>Open <code>edge://extensions</code></li>
+    <li>Zoek "Callto/SIP to Tel Converter"</li>
+    <li>Klik "Verwijderen"</li>
+    <li>Bevestig "Verwijderen"</li>
+</ol>
+
+<strong>In Google Chrome:</strong>
+<ol>
+    <li>Open <code>chrome://extensions</code></li>
+    <li>Zoek "Callto/SIP to Tel Converter"</li>
+    <li>Klik "Verwijderen"</li>
+    <li>Bevestig "Verwijderen"</li>
+</ol>
+
+---
+
+<h2>Escalatieprocedure</h2>
+
+<h3>Wanneer NIET naar Tweede Lijn escaleren</h3>
+
+<p>Deze problemen kunt u zelf oplossen:</p>
+<ul>
+    <li>Extensie niet ingeschakeld (controleer toggle)</li>
+    <li>Website niet vernieuwd (Ctrl+F5)</li>
+    <li>Verkeerd installatiepad gevolgd (herhaal installatiehandleiding)</li>
+    <li>Gebruiker testte op website zonder <code>callto:</code>/<code>sip:</code> links</li>
+    <li>VoIP-app (Teams/3CX) niet ingesteld als standaard</li>
+</ul>
+
+---
+
+<h3>Wanneer WEL naar Tweede Lijn escaleren</h3>
+
+<p>Escaleer in deze scenario's:</p>
+
+<h4>Scenario 1: Extensie crasht browser</h4>
+<div class="escalation-box">
+    <strong>Symptomen:</strong> Browser crasht of wordt traag<br>
+    <strong>Actie:</strong> Verwijder extensie, rapporteer bug
+</div>
+
+<h4>Scenario 2: VoIP-systeem reageert niet op tel: links</h4>
+<div class="escalation-box">
+    <strong>Symptomen:</strong> Links werken na conversie, maar Teams/3CX opent niet<br>
+    <strong>Vereiste info:</strong>
+    <ul>
+        <li>VoIP-systeem naam en versie</li>
+        <li>Screenshot van Developer Tools console</li>
+        <li>Werkend telefoonnummer dat test werd</li>
+    </ul>
+</div>
+
+<h4>Scenario 3: Extensie werkt op bepaalde bedrijfswebsites niet</h4>
+<div class="escalation-box">
+    <strong>Symptomen:</strong> Alle andere websites werken, maar interne website niet<br>
+    <strong>Vereiste info:</strong>
+    <ul>
+        <li>Exacte URL van website</li>
+        <li>Echte link-formaat (screenshot Developer Tools)</li>
+        <li>CSP-foutmeldingen uit console</li>
+    </ul>
+</div>
+
+<h4>Scenario 4: Installation/Removal Issues</h4>
+<div class="escalation-box">
+    <strong>Symptomen:</strong> Kan extensie niet installeren of verwijderen<br>
+    <strong>Vereiste info:</strong>
+    <ul>
+        <li>Exacte foutmelding</li>
+        <li>Screenshot van extensiepagina</li>
+    </ul>
+</div>
+
+<h4>Scenario 5: Gebruiker meldt beveiligingsprobleem</h4>
+<div class="escalation-box">
+    <strong>Symptomen:</strong> Verdacht gedrag, onverwachte netwerk-activiteit<br>
+    <strong>Actie:</strong> ONMIDDELLIJK escaleren, verwijder extensie
+</div>
+
+---
+
+<h3>Escalatie-informatie verzamelen</h3>
+
+<p>Voordat u escaleer, verzamel deze informatie:</p>
+
+<table>
+    <tr>
+        <td width="50%"><input type="checkbox"> Gebruikersnaam:</td>
+        <td width="50%">_____________________</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"> Computernaam:</td>
+        <td>_____________________</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"> Besturingssysteem Windows versie:</td>
+        <td>_____________________</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"> Browser (Edge/Chrome) versie:</td>
+        <td>_____________________</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"> Extensie versie:</td>
+        <td>1.1</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"> Installatiepad gebruikt:</td>
+        <td>C:\...\LinkChangerExtenstion</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"> Wanneer begon het probleem:</td>
+        <td>_____________________</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"> Stappen al ondernomen:</td>
+        <td>_____________________</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"> Foutmeldingen (screenshot):</td>
+        <td>_____________________</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"> VoIP-systeem gebruikt (Teams/3CX/Ander):</td>
+        <td>_____________________</td>
+    </tr>
+</table>
+
+---
+
+<h2>Contactinformatie</h2>
+
+<h3>Eerste Lijn Support (U)</h3>
+<div class="info-box">
+    <strong>Uw rol:</strong>
+    <ul>
+        <li>Begeleiding bij installatie</li>
+        <li>Veelvoorkomende problemen oplossen</li>
+        <li>Extensiestatus controleren</li>
+        <li>Gebruikers informatie geven</li>
+    </ul>
+</div>
+
+---
+
+<h3>Tweede Lijn Support (IT-beheerders)</h3>
+<div class="info-box">
+    <strong>Wanneer contact opnemen:</strong>
+    <ul>
+        <li>Extensie werkt niet na alle probleemoplossing</li>
+        <li>VoIP-integratieproblemen</li>
+        <li>Beveiligingskwetsbaarheden</li>
+        <li>Browser-crashes</li>
+        <li>Enterprise-deployment vragen</li>
+    </ul>
+    <p><strong>Informatie meegeven:</strong> Zie "Escalatie-informatie verzamelen" hierboven</p>
+</div>
+
+---
+
+<h3>Verdere Bronnen</h3>
+<ul>
+    <li><strong>Interne locatie:</strong> <code>C:\Users\s.lentjes\OneDrive - Xantion ICT\Tools\LinkChangerExtenstion</code></li>
+    <li><strong>Toekomstige beschikbaarheid:</strong>
+        <ul>
+            <li>Chrome Web Store (eenvoudigere installatie)</li>
+            <li>Microsoft Edge Add-ons (eenvoudigere installatie)</li>
+        </ul>
+    </li>
+</ul>
+
+---
+
+<h2>Technische Details (Voor Tweede Lijn)</h2>
+
+<h3>Hoe werkt de extensie?</h3>
+
+<ol>
+    <li><strong>Initialisering:</strong> De extensie laadt wanneer de browser start</li>
+    <li><strong>Scanning:</strong> Bij elke pagina-load scant deze naar links met <code>callto:</code> en <code>sip:</code> protocol</li>
+    <li><strong>Conversie:</strong> Deze links worden vervangen door <code>tel:</code> links</li>
+    <li><strong>Monitoring:</strong> De extensie monitort dynamisch geladen inhoud (AJAX/SPA's) en converteert ook deze links</li>
+</ol>
+
+---
+
+<h3>Extensie-bestanden</h3>
+
+<div class="path">
+LinkChangerExtenstion/<br>
+├── manifest.json          (Configuratie en instellingen)<br>
+├── content.js             (Hoofdlogica voor linkconversie)<br>
+└── icons/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── icon16.png         (Kleine pictogram)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├── icon48.png         (Gemiddeld pictogram)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── icon128.png        (Grote pictogram)
+</div>
+
+---
+
+<h3>Bekende Beperkingen</h3>
+
+<ul>
+    <li><strong>Dynamische inhoud:</strong> Extensie volgt mutaties in DOM, maar niet alles</li>
+    <li><strong>PDF's:</strong> Werkt niet in embedded PDF's (browsers blokkeren dit)</li>
+    <li><strong>Chrome Extensions API:</strong> Werkt alleen in Chrome/Edge, niet in Firefox</li>
+    <li><strong>CSP-blocking:</strong> Sommige bedrijfssites blokkeren extensies</li>
+</ul>
+
+---
+
+<h2>Versiegeschiedenis</h2>
+
+<table>
+    <tr>
+        <th>Versie</th>
+        <th>Status</th>
+        <th>Details</th>
+    </tr>
+    <tr>
+        <td>1.1</td>
+        <td>Huidige</td>
+        <td>Ondersteunt <code>callto:</code> en <code>sip:</code> protocollen. Monitort dynamisch toegevoegde inhoud. Werkt in Edge en Chrome. Manifest v3 compatibel.</td>
+    </tr>
+    <tr>
+        <td>Toekomst</td>
+        <td>Gepland</td>
+        <td>Web Store publicatie, geavanceerde configuratieopties, andere VoIP-protocollen (indien nodig)</td>
+    </tr>
+</table>
+
+---
+
+<div class="info-box">
+    <strong>Document metadata:</strong><br>
+    Gemaakt: 2026-01-16<br>
+    Versie: 1.0<br>
+    Doelgroep: Eerste lijn support<br>
+    Taal: Nederlands
+</div>
+
+</div>
+</body>
+</html>
